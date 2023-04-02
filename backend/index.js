@@ -1,10 +1,10 @@
 const express = require("express")
 const app = express();
 const PORT = 5000;
-const User = require("./models/User")
-const mongoose = require("mongoose")
 const mongoDb = require("./db")
 mongoDb();
+
+const path = require("path")
 const cors = require('cors');
 
 const corsOptions = {
@@ -31,6 +31,11 @@ app.use(require("./Routes/CreateUser"));
 app.use(require("./Routes/Displaydata"));
 app.use(require("./Routes/OrderData"));
 // app.use(require("./Routes/OrderData"));
+
+app.use(express.static(path.join(__dirname, "../client/build")))
+app.get("*", function(req,res){
+     res.sendFile(path.join(__dirname,"../client/build/index.html"))
+});
 
 app.get("/",(req,res)=>{
     res.end("Hello form the backend______");

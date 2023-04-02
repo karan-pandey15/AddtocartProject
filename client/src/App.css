@@ -16,9 +16,11 @@ Nav .linkStyle{
   bottom: 0;
 }
 #carousel{
-   max-height: 500px;
-   object-fit: contain;
+  /* max-height: 500px; */
+  height: 50vh;
+  object-fit: contain;
 }
+
 #carousel img{
    object-fit: contain;
 }
@@ -40,7 +42,13 @@ Nav .linkStyle{
 .cp{
   cursor: pointer;
 }
-@media screen and (max-width:000px){
+@media screen and (max-width:500px){
+
+  #carousel{
+    height: 20vh;
+  }
+  
+
   .centerCart{
     position: absolute;
     left: 50%;
@@ -48,5 +56,4 @@ Nav .linkStyle{
     margin-left: 0;
   }
 }
-
 
